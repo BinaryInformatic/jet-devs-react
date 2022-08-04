@@ -3,7 +3,7 @@ import ScoreBoard from './containers/ScoreBoard';
 
 function App() {
   return (
-    <div className="App" style={{ borderRadius: "10%" }}>
+    <div className="App">
       <ScoreBoard />
     </div>
   );
