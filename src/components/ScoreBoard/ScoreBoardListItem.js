@@ -4,7 +4,7 @@ function ScoreBoardListItem({ scoreItem, rank }) {
   return (
     <StyledList>
       <LeftContainer>
-        <Rank>{rank}</Rank>
+        <Rank backgroundColor={setRankBackgroundColor(rank)}>{rank}</Rank>
         <Icon src={scoreItem.picture} alt="Avatar" />
         <Name>{scoreItem.displayName}</Name>
       </LeftContainer>
@@ -17,6 +17,19 @@ function ScoreBoardListItem({ scoreItem, rank }) {
 }
 
 export default ScoreBoardListItem;
+
+function setRankBackgroundColor(rank) {
+  switch (rank) {
+      case 1:
+          return "#F53B3E";
+      case 2:
+          return "#FC7A3C";
+      case 3:
+          return "#FFA22E";
+      default:
+          return "blue";
+  }
+}
 
 const StyledList = styled.li`
   display: flex;
@@ -47,12 +60,12 @@ const Rank = styled.span`
 position: absolute;
 left: 20px;
 border-radius: 50%;
-background-color: blue;
 color: white;
 font-weight: bold;
 font-size: 10px;
 top: 22px;
 padding: 0px 5px;
+background-color:${(props) => (props.backgroundColor)};
   `;
 
   const Name = styled.span`
