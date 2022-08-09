@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-function ScoreBoardListItem({ scoreItem, rank }) {
+function ScoreBoardListItem({ scoreItem, rank, flipKey }) {
   return (
-    <StyledList>
+    <StyledList data-flip-id={`flipItemId-${flipKey}`}>
       <LeftContainer>
         <Rank backgroundColor={setRankBackgroundColor(rank)}>{rank}</Rank>
         <Icon src={scoreItem.picture} alt="Avatar" />
@@ -20,14 +20,14 @@ export default ScoreBoardListItem;
 
 function setRankBackgroundColor(rank) {
   switch (rank) {
-      case 1:
-          return "#F53B3E";
-      case 2:
-          return "#FC7A3C";
-      case 3:
-          return "#FFA22E";
-      default:
-          return "blue";
+    case 1:
+      return "#F53B3E";
+    case 2:
+      return "#FC7A3C";
+    case 3:
+      return "#FFA22E";
+    default:
+      return "blue";
   }
 }
 
@@ -68,7 +68,7 @@ padding: 0px 5px;
 background-color:${(props) => (props.backgroundColor)};
   `;
 
-  const Name = styled.span`
+const Name = styled.span`
   color: #000;
   margin-left: 15px;
   ${StyledList}:hover & {
@@ -77,7 +77,7 @@ background-color:${(props) => (props.backgroundColor)};
   font-weight: bold;
   `;
 
-  const Score = styled.span`
+const Score = styled.span`
   color: #000;
   margin-right: 10px;
   ${StyledList}:hover & {
@@ -86,15 +86,7 @@ background-color:${(props) => (props.backgroundColor)};
   font-weight: bold;
   `;
 
-  
-  const Point = styled.span`
-  color: #8d8c8c;
-  
+
+const Point = styled.span`
+  color: #8d8c8c;  
   `;
-  
-
-
-
-
-
-
